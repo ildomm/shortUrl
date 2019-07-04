@@ -44,7 +44,7 @@ paths:
             $ref: '#/definitions/User'
       responses:
         '200':
-          description: login
+          description: Successful operation
           schema:
             $ref: '#/definitions/User'
         default:
@@ -76,7 +76,6 @@ paths:
         - users
       summary: Creates new url
       operationId: createUrl
-      security: []
       parameters:
         - in: path
           name: userId
@@ -92,7 +91,7 @@ paths:
                 type: string
       responses:
         '200':
-          description: login
+          description: Successful operation
           schema:
             $ref: '#/definitions/Url'
         default:
@@ -102,6 +101,103 @@ paths:
         '404':
           description: User not found
 
+  /urls/{id}/:
+    get:
+      tags:
+        - urls
+      summary: Get a Url redirection
+      description: Get a Url redirection
+      operationId: redirectUrl
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+      responses:
+        '301':
+          description: successful operation
+        '404':
+          description: Url not found
+          
+  /urls/{id}:
+    delete:
+      tags:
+        - urls
+      summary: Delete url
+      operationId: deleteUrl
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Successful operation
+        '404':
+          description: Url not found            
+            
+            
+  /stats:
+    get:
+      tags:
+        - stats
+      summary: Get system statistics
+      description: Get system statistics
+      operationId: getSystemStats
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Stats'
+        default:
+          description: error
+          schema:
+            $ref: '#/definitions/GeneralError'
+            
+  /stats/{id}:
+    get:
+      tags:
+        - stats
+      summary: Get url statistics
+      description: Get url statistics
+      operationId: getUrlStats
+      parameters:
+        - in: path
+          name: id
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Url'
+        default:
+          description: error
+          schema:
+            $ref: '#/definitions/GeneralError'
+            
+  /users/{userId}/stats:
+    get:
+      tags:
+        - stats
+      summary: Get user statistics
+      description: Get user statistics
+      operationId: getUserStats
+      parameters:
+        - in: path
+          name: userId
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/Stats'
+        default:
+          description: error
+          schema:
+            $ref: '#/definitions/GeneralError'
+          
 definitions:
   GeneralError:
     properties:
@@ -128,4 +224,15 @@ definitions:
       shortUrl:
         type: string
 
-
+  Stats:
+    type: object
+    properties:
+      hits:
+        type: integer
+      urlCount:
+        type: integer
+      topUrls:
+        type: array
+        items:
+          $ref: '#/definitions/Url'
+ 
