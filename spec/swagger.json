@@ -1,0 +1,195 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is the API specification for Linx challenge project",
+    "version": "0.1.0",
+    "title": "Linx API"
+  },
+  "host": "api.poc.com",
+  "basePath": "/v1",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "users",
+      "description": "User actions"
+    },
+    {
+      "name": "urls",
+      "description": "Urls management"
+    },
+    {
+      "name": "stats",
+      "description": "System information"
+    }
+  ],
+  "paths": {
+    "/*": {
+      "options": {
+        "operationId": "optionsAllow",
+        "security": [],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Creates new user",
+        "operationId": "createUser",
+        "security": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "login",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          }
+        }
+      }
+    },
+    "/user/{userId}": {
+      "delete": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Delete user",
+        "operationId": "deleteUser",
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/users/{userId}/urls": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Creates new url",
+        "operationId": "createUrl",
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "url",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "login",
+            "schema": {
+              "$ref": "#/definitions/Url"
+            }
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "default": {
+            "description": "error",
+            "schema": {
+              "$ref": "#/definitions/GeneralError"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "GeneralError": {
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "Url": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "hits": {
+          "type": "integer"
+        },
+        "url": {
+          "type": "string"
+        },
+        "shortUrl": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
