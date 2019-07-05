@@ -24,7 +24,7 @@ func Setup() *DATABASE {
 func instances() *DATABASE {
 	log.Println("Connecting database")
 	return &DATABASE{
-		Redis:    redisClient(),
+		Redis: redisClient(),
 	}
 }
 
