@@ -1,0 +1,1 @@
+swagger generate server -f spec\swagger.json -A poc --default-scheme=http
