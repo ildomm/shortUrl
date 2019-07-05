@@ -107,31 +107,6 @@ func init() {
       }
     },
     "/urls/{id}": {
-      "delete": {
-        "tags": [
-          "urls"
-        ],
-        "summary": "Delete url",
-        "operationId": "deleteUrl",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation"
-          },
-          "404": {
-            "description": "Url not found"
-          }
-        }
-      }
-    },
-    "/urls/{id}/": {
       "get": {
         "description": "Get a Url redirection",
         "tags": [
@@ -150,6 +125,29 @@ func init() {
         "responses": {
           "301": {
             "description": "successful operation"
+          },
+          "404": {
+            "description": "Url not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "urls"
+        ],
+        "summary": "Delete url",
+        "operationId": "deleteUrl",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
           },
           "404": {
             "description": "Url not found"
@@ -457,31 +455,6 @@ func init() {
       }
     },
     "/urls/{id}": {
-      "delete": {
-        "tags": [
-          "urls"
-        ],
-        "summary": "Delete url",
-        "operationId": "deleteUrl",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation"
-          },
-          "404": {
-            "description": "Url not found"
-          }
-        }
-      }
-    },
-    "/urls/{id}/": {
       "get": {
         "description": "Get a Url redirection",
         "tags": [
@@ -500,6 +473,29 @@ func init() {
         "responses": {
           "301": {
             "description": "successful operation"
+          },
+          "404": {
+            "description": "Url not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "urls"
+        ],
+        "summary": "Delete url",
+        "operationId": "deleteUrl",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
           },
           "404": {
             "description": "Url not found"

@@ -29,7 +29,7 @@ func NewRedirectURL(ctx *middleware.Context, handler RedirectURLHandler) *Redire
 	return &RedirectURL{Context: ctx, Handler: handler}
 }
 
-/*RedirectURL swagger:route GET /urls/{id}/ urls redirectUrl
+/*RedirectURL swagger:route GET /urls/{id} urls redirectUrl
 
 Get a Url redirection
 

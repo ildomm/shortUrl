@@ -40,7 +40,7 @@ func (o *RedirectURLURL) SetBasePath(bp string) {
 func (o *RedirectURLURL) Build() (*url.URL, error) {
 	var _result url.URL
 
-	var _path = "/urls/{id}/"
+	var _path = "/urls/{id}"
 
 	id := o.ID
 	if id != "" {

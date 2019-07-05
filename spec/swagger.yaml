@@ -101,7 +101,7 @@ paths:
         '404':
           description: User not found
 
-  /urls/{id}/:
+  /urls/{id}:
     get:
       tags:
         - urls
@@ -119,7 +119,6 @@ paths:
         '404':
           description: Url not found
           
-  /urls/{id}:
     delete:
       tags:
         - urls

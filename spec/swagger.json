@@ -152,7 +152,7 @@
         }
       }
     },
-    "/urls/{id}/": {
+    "/urls/{id}": {
       "get": {
         "tags": [
           "urls"
@@ -176,9 +176,7 @@
             "description": "Url not found"
           }
         }
-      }
-    },
-    "/urls/{id}": {
+      },
       "delete": {
         "tags": [
           "urls"
