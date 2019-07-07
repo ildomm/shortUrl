@@ -19,23 +19,14 @@ func CreateUserHandlerResponder(params CreateUserParams) middleware.Responder {
 }
 
 func DeleteUserHandlerResponder(params DeleteUserParams) middleware.Responder {
+
+	// Delete urls from user
+	// Delete user
+
 	return nil
 }
 
 func CreateURLHandlerResponder(params CreateURLParams) middleware.Responder {
-	urlElement := new(models.URL)
-	if models.UrlExists(params.UserID, params.URL.URL) {
-		// Load details
-	} else {
-		urlElement.URL = params.URL.URL
-		urlElement.GenerateShort()
-		urlElement.SaveUrlKey(params.UserID)
-		urlElement.SaveUrlDetail(params.UserID)
-	}
 
-	urlElement.URL = params.URL.URL
-	urlElement.ID = models.UrlDBId(params.UserID, params.URL.URL)
-	urlElement.LoadUrlDetail(params.UserID)
-
-	return NewCreateURLOK().WithPayload(urlElement)
+	return NewCreateURLOK()
 }
