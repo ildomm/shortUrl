@@ -1,37 +1,41 @@
 package db
 
 import (
-	"github.com/go-redis/redis"
 	"log"
 	"sync"
+
+	"github.com/gocraft/dbr"
 )
 
-var conn *DATABASE
+var conn *pocDATABASES
 var once sync.Once
-var env string
-
-type DATABASE struct {
-	Redis    *redis.Client
+type pocDATABASES struct {
+	Mysql *dbr.Connection
 }
 
-func Setup() *DATABASE {
+const (
+	TIME_FORMAT = "2006-01-02 15:04:05"
+)
+
+func Setup() *pocDATABASES {
 	once.Do(func() {
 		conn = instances()
 	})
 	return conn
 }
 
-func instances() *DATABASE {
-	log.Println("Connecting database")
-	return &DATABASE{
-		Redis: redisClient(),
+func instances() *pocDATABASES {
+	log.Println("Connecting databases" )
+
+	return &pocDATABASES{
+		Mysql: mysql(),
 	}
 }
 
-func ResetDatabases() {
-	ResetRedisDB()
+func ResetDatabases() bool {
+	return ResetMysqlDB()
 }
 
 func CleanDatabases() {
-	ResetRedisDB()
+	CleanMysqlDB()
 }

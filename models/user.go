@@ -16,7 +16,7 @@ import (
 type User struct {
 
 	// id
-	ID string `json:"id,omitempty"`
+	ID string `json:"id"`
 }
 
 // Validate validates this user

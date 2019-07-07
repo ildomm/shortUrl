@@ -2,11 +2,15 @@
   "runtime": {
     "project": "POC",
     "port": 80,
-    "host": "0.0.0.0"
+    "host": "0.0.0.0",
+    "url": "http://www.chaordic.com.br/"
   },
   "database": {
     "host": "localhost",
-    "port": "6379"
+    "port": "3306",
+    "username": "poc",
+    "password": "poc",
+    "database": "3306"
   },
   "logger": {
     "base_path": "/src/github.com/ildomm/linx_challenge/log/",

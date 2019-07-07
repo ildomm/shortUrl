@@ -7,13 +7,13 @@ import (
 )
 
 func CreateUserHandlerResponder(params CreateUserParams) middleware.Responder {
-	if models.UserDBId(params.ID.ID) {
+	if models.UserExists(params.ID.ID) {
 		return NewCreateUserDefault(409)
 	}
 
 	user := new(models.User)
 	user.ID = params.ID.ID
-	user.Save()
+	user.SaveUser()
 
 	return NewCreateUserOK().WithPayload(user)
 }
@@ -23,5 +23,19 @@ func DeleteUserHandlerResponder(params DeleteUserParams) middleware.Responder {
 }
 
 func CreateURLHandlerResponder(params CreateURLParams) middleware.Responder {
-	return nil
+	urlElement := new(models.URL)
+	if models.UrlExists(params.UserID, params.URL.URL) {
+		// Load details
+	} else {
+		urlElement.URL = params.URL.URL
+		urlElement.GenerateShort()
+		urlElement.SaveUrlKey(params.UserID)
+		urlElement.SaveUrlDetail(params.UserID)
+	}
+
+	urlElement.URL = params.URL.URL
+	urlElement.ID = models.UrlDBId(params.UserID, params.URL.URL)
+	urlElement.LoadUrlDetail(params.UserID)
+
+	return NewCreateURLOK().WithPayload(urlElement)
 }
