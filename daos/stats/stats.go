@@ -1,4 +1,4 @@
-package users
+package stats
 
 import (
 	"database/sql"
@@ -33,7 +33,7 @@ func Top10SummaryHits(userId *int64) (*models.Stats, *mysql.MySQLError) {
 		entry = statsScan(rows)
 	}
 
-	urls, err := Top10Urls(userId)
+	urls, err := top10Urls(userId)
 	if err != nil {
 		log.Println(err)
 		errDB := err.(*mysql.MySQLError)
@@ -44,7 +44,7 @@ func Top10SummaryHits(userId *int64) (*models.Stats, *mysql.MySQLError) {
 	return entry, nil
 }
 
-func Top10Urls(userId *int64) ([]*models.URL, *mysql.MySQLError) {
+func top10Urls(userId *int64) ([]*models.URL, *mysql.MySQLError) {
 	var entries []*models.URL
 
 	session := db.Mysql()

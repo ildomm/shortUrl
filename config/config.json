@@ -9,8 +9,8 @@
     "host": "localhost",
     "port": "3306",
     "username": "poc",
-    "password": "poc",
-    "database": "3306"
+    "password": "y8364mry5w",
+    "database": "poc"
   },
   "logger": {
     "base_path": "/src/github.com/ildomm/linx_challenge/log/",

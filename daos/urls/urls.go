@@ -1,4 +1,4 @@
-package users
+package urls
 
 import (
 	"github.com/go-sql-driver/mysql"
@@ -11,18 +11,18 @@ import (
 var tableName = "urls"
 var tableFields = "id, user_id, url, short, hits, created_at"
 
-func ById(id int64) *models.User {
-	var entry *models.User
+func ById(id string) *models.URL {
+	var entry *models.URL
 
 	session := db.Mysql()
 	session.Select("*").From(tableName).
-		Where("Id = ?", id).
+		Where("id = ?", id).
 		LoadOne(&entry)
 	return entry
 }
 
-func ByUrl(url string) *models.User {
-	var entry *models.User
+func ByUrl(url string) *models.URL {
+	var entry *models.URL
 
 	session := db.Mysql()
 	session.Select("*").From(tableName).
@@ -31,8 +31,8 @@ func ByUrl(url string) *models.User {
 	return entry
 }
 
-func ByShort(short string) *models.User {
-	var entry *models.User
+func ByShort(short string) *models.URL {
+	var entry *models.URL
 
 	session := db.Mysql()
 	session.Select("*").From(tableName).
@@ -41,7 +41,6 @@ func ByShort(short string) *models.User {
 	return entry
 }
 
-
 func UrlExists(url string) bool {
 	var total int
 
@@ -49,7 +48,7 @@ func UrlExists(url string) bool {
 	err :=
 		session.Select("COUNT(*) as total").
 			From(tableName).
-			Where("Identify = ?", url).
+			Where("url = ?", url).
 			LoadOne(&total)
 
 	if err != nil {
@@ -63,11 +62,14 @@ func UrlExists(url string) bool {
 }
 
 func Insert(entry models.URL, userId int64) (*models.URL, *mysql.MySQLError) {
+
+	entry.ShortURL = entry.GenerateShortURL()
+
 	session := db.Mysql()
 	stmt := session.InsertInto(tableName).
 		Pair("user_id", userId).
 		Pair("url", entry.URL).
-		Pair("short", entry.GenerateShortURL() ).
+		Pair("short", entry.ShortURL).
 		Pair("hits", 0).
 		Pair("created_at", time.Now().Format(db.TIME_FORMAT))
 
@@ -87,7 +89,7 @@ func Insert(entry models.URL, userId int64) (*models.URL, *mysql.MySQLError) {
 	return nil, nil
 }
 
-func Delete(id int64) bool {
+func Delete(id string) bool {
 	var total int
 
 	session := db.Mysql()
@@ -121,4 +123,19 @@ func DeleteByUser(userId int64) bool {
 	} else {
 		return false
 	}
+}
+
+func IncreaseHits(id int64) *mysql.MySQLError {
+	session := db.Mysql()
+	_, err := session.UpdateBySql(" UPDATE urls " +
+		" SET hits = (hits + 1) " +
+		" WHERE id = '" + string(id) + "'").
+		Exec()
+
+	if err != nil {
+		errDB := err.(*mysql.MySQLError)
+		return errDB
+	}
+
+	return nil
 }

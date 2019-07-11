@@ -28,7 +28,9 @@ var _ = Describe("Connection", func() {
 	Context("Evolve", func() {
 		It("able to reset", func() {
 			defer GinkgoRecover()
-			db.ResetDatabases()
+			db.CleanDatabases()
+			Expect(db.CountTable("users")).To(Equal(int(0)))
+			Expect(db.CountTable("urls")).To(Equal(int(0)))
 		})
 	})
 
@@ -37,12 +39,6 @@ var _ = Describe("Connection", func() {
 		It("has DATABASE instance", func() {
 			defer GinkgoRecover()
 			Expect(db.Setup()).ToNot(BeNil())
-		})
-
-		It("has Redis connection", func() {
-			defer GinkgoRecover()
-			db.Setup()
-			Expect(db.Redis()).ToNot(BeNil())
 		})
 
 	})

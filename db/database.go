@@ -32,10 +32,6 @@ func instances() *pocDATABASES {
 	}
 }
 
-func ResetDatabases() bool {
-	return ResetMysqlDB()
-}
-
 func CleanDatabases() {
 	CleanMysqlDB()
 }

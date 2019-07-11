@@ -42,5 +42,17 @@ func ResetMysqlDB() bool {
 }
 
 func CleanMysqlDB() bool {
+	Mysql().Exec("DELETE FROM users")
+	Mysql().Exec("DELETE FROM urls")
+
 	return true
+}
+
+func CountTable(table string) int {
+	var count int = 0
+	session := Mysql()
+	session.Select("COUNT(*) as count").From(table).
+		LoadOne(&count)
+
+	return count
 }

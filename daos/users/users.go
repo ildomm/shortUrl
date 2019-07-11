@@ -1,7 +1,6 @@
 package users
 
 import (
-	"fmt"
 	"github.com/go-sql-driver/mysql"
 	"github.com/ildomm/linx_challenge/db"
 	"github.com/ildomm/linx_challenge/models"
@@ -22,12 +21,23 @@ func ById(id int64) *models.User {
 	return entry
 }
 
-func ByIdentify(email string) *models.User {
+func UserId(identify string) int64 {
+	var id int64 = 0
+
+	session := db.Mysql()
+	session.Select("id").From(tableName).
+		Where("identify = ?", identify).
+		LoadOne(&id)
+
+	return id
+}
+
+func ByIdentify(identify string) *models.User {
 	var entry *models.User
 
 	session := db.Mysql()
 	session.Select("*").From(tableName).
-		Where("identify = ?", email).
+		Where("identify = ?", identify).
 		LoadOne(&entry)
 	return entry
 }
@@ -39,7 +49,7 @@ func IdentifyExists(identify string) bool {
 	err :=
 		session.Select("COUNT(*) as total").
 			From(tableName).
-			Where("Identify = ?", identify).
+			Where("identify = ?", identify).
 			LoadOne(&total)
 
 	if err != nil {
@@ -57,7 +67,7 @@ func Insert(identify string) (*models.User, *mysql.MySQLError) {
 
 	session := db.Mysql()
 	stmt := session.InsertInto(tableName).
-		Pair("Identify", identify).
+		Pair("identify", identify).
 		Pair("created_at", time.Now().Format(db.TIME_FORMAT))
 
 	var entryID int64
@@ -69,7 +79,7 @@ func Insert(identify string) (*models.User, *mysql.MySQLError) {
 	} else {
 		_ = session.Select("LAST_INSERT_ID() as ID").
 			From(tableName).LoadOne(&entryID)
-		entry.ID = fmt.Sprintf("%f", entryID)
+		entry.ID = string(entryID)
 		return entry, nil
 	}
 
