@@ -19,13 +19,13 @@ import (
 type Stats struct {
 
 	// hits
-	Hits int64 `json:"hits"`
+	Hits int64 `json:"hits,omitempty"`
 
 	// top urls
 	TopUrls []*URL `json:"topUrls"`
 
 	// url count
-	URLCount int64 `json:"urlCount"`
+	URLCount int64 `json:"urlCount,omitempty"`
 }
 
 // Validate validates this stats

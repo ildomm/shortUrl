@@ -123,8 +123,13 @@ func init() {
           }
         ],
         "responses": {
-          "301": {
-            "description": "successful operation"
+          "302": {
+            "description": "successful operation",
+            "headers": {
+              "Location": {
+                "type": "string"
+              }
+            }
           },
           "404": {
             "description": "Url not found"
@@ -471,8 +476,13 @@ func init() {
           }
         ],
         "responses": {
-          "301": {
-            "description": "successful operation"
+          "302": {
+            "description": "successful operation",
+            "headers": {
+              "Location": {
+                "type": "string"
+              }
+            }
           },
           "404": {
             "description": "Url not found"

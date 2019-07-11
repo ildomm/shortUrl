@@ -16,16 +16,16 @@ import (
 type URL struct {
 
 	// hits
-	Hits int64 `json:"hits"`
+	Hits int64 `json:"hits,omitempty"`
 
 	// id
-	ID int64 `json:"id"`
+	ID int64 `json:"id,omitempty"`
 
 	// short Url
-	ShortURL string `json:"shortUrl"`
+	ShortURL string `json:"shortUrl,omitempty"`
 
 	// url
-	URL string `json:"url"`
+	URL string `json:"url,omitempty"`
 }
 
 // Validate validates this Url

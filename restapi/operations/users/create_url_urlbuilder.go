@@ -38,7 +38,7 @@ func (o *CreateURLURL) SetBasePath(bp string) {
 
 // Build a url path and query string
 func (o *CreateURLURL) Build() (*url.URL, error) {
-	var _result url.URL
+	var result url.URL
 
 	var _path = "/users/{userId}/urls"
 
@@ -46,16 +46,16 @@ func (o *CreateURLURL) Build() (*url.URL, error) {
 	if userID != "" {
 		_path = strings.Replace(_path, "{userId}", userID, -1)
 	} else {
-		return nil, errors.New("userId is required on CreateURLURL")
+		return nil, errors.New("UserID is required on CreateURLURL")
 	}
 
 	_basePath := o._basePath
 	if _basePath == "" {
 		_basePath = "/v1"
 	}
-	_result.Path = golangswaggerpaths.Join(_basePath, _path)
+	result.Path = golangswaggerpaths.Join(_basePath, _path)
 
-	return &_result, nil
+	return &result, nil
 }
 
 // Must is a helper function to panic when the url builder returns an error

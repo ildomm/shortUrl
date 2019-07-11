@@ -11,28 +11,50 @@ import (
 	"github.com/go-openapi/runtime"
 )
 
-// RedirectURLMovedPermanentlyCode is the HTTP code returned for type RedirectURLMovedPermanently
-const RedirectURLMovedPermanentlyCode int = 301
+// RedirectURLFoundCode is the HTTP code returned for type RedirectURLFound
+const RedirectURLFoundCode int = 302
 
-/*RedirectURLMovedPermanently successful operation
+/*RedirectURLFound successful operation
 
-swagger:response redirectUrlMovedPermanently
+swagger:response redirectUrlFound
 */
-type RedirectURLMovedPermanently struct {
+type RedirectURLFound struct {
+	/*
+
+	 */
+	Location string `json:"Location"`
 }
 
-// NewRedirectURLMovedPermanently creates RedirectURLMovedPermanently with default headers values
-func NewRedirectURLMovedPermanently() *RedirectURLMovedPermanently {
+// NewRedirectURLFound creates RedirectURLFound with default headers values
+func NewRedirectURLFound() *RedirectURLFound {
 
-	return &RedirectURLMovedPermanently{}
+	return &RedirectURLFound{}
+}
+
+// WithLocation adds the location to the redirect Url found response
+func (o *RedirectURLFound) WithLocation(location string) *RedirectURLFound {
+	o.Location = location
+	return o
+}
+
+// SetLocation sets the location to the redirect Url found response
+func (o *RedirectURLFound) SetLocation(location string) {
+	o.Location = location
 }
 
 // WriteResponse to the client
-func (o *RedirectURLMovedPermanently) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
+func (o *RedirectURLFound) WriteResponse(rw http.ResponseWriter, producer runtime.Producer) {
+
+	// response header Location
+
+	location := o.Location
+	if location != "" {
+		rw.Header().Set("Location", location)
+	}
 
 	rw.Header().Del(runtime.HeaderContentType) //Remove Content-Type on empty responses
 
-	rw.WriteHeader(301)
+	rw.WriteHeader(302)
 }
 
 // RedirectURLNotFoundCode is the HTTP code returned for type RedirectURLNotFound

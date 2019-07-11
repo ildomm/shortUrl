@@ -38,7 +38,7 @@ func (o *DeleteURLURL) SetBasePath(bp string) {
 
 // Build a url path and query string
 func (o *DeleteURLURL) Build() (*url.URL, error) {
-	var _result url.URL
+	var result url.URL
 
 	var _path = "/urls/{id}"
 
@@ -46,16 +46,16 @@ func (o *DeleteURLURL) Build() (*url.URL, error) {
 	if id != "" {
 		_path = strings.Replace(_path, "{id}", id, -1)
 	} else {
-		return nil, errors.New("id is required on DeleteURLURL")
+		return nil, errors.New("ID is required on DeleteURLURL")
 	}
 
 	_basePath := o._basePath
 	if _basePath == "" {
 		_basePath = "/v1"
 	}
-	_result.Path = golangswaggerpaths.Join(_basePath, _path)
+	result.Path = golangswaggerpaths.Join(_basePath, _path)
 
-	return &_result, nil
+	return &result, nil
 }
 
 // Must is a helper function to panic when the url builder returns an error
