@@ -114,8 +114,11 @@ paths:
           type: string
           required: true
       responses:
-        '301':
+        302:
           description: successful operation
+          headers:
+            Location:
+              type: "string"
         '404':
           description: Url not found
           
