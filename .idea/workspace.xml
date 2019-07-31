@@ -1,39 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8152ff9d-6c81-4dfd-b657-ea5a6039b343" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daos/stats/stats.go" beforeDir="false" afterPath="$PROJECT_DIR$/daos/stats/stats.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daos/urls/urls.go" beforeDir="false" afterPath="$PROJECT_DIR$/daos/urls/urls.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/daos/users/users.go" beforeDir="false" afterPath="$PROJECT_DIR$/daos/users/users.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/database.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/database_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/database_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/mysql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/stats/stat_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/stats/stat_handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/urls/url_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/urls/url_handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/user_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/user_handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/stats.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/stats.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/url.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/url.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/url_.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/url_.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user_.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/user_.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/embedded_spec.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/embedded_spec.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/operations/options_allow_urlbuilder.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/operations/options_allow_urlbuilder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/operations/poc_api.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/operations/poc_api.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/operations/stats/get_system_stats_urlbuilder.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/operations/stats/get_system_stats_urlbuilder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/operations/stats/get_url_stats_urlbuilder.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/operations/stats/get_url_stats_urlbuilder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/operations/stats/get_user_stats_urlbuilder.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/operations/stats/get_user_stats_urlbuilder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/operations/urls/delete_url_urlbuilder.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/operations/urls/delete_url_urlbuilder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/operations/urls/redirect_url_responses.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/operations/urls/redirect_url_responses.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/operations/urls/redirect_url_urlbuilder.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/operations/urls/redirect_url_urlbuilder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/operations/users/create_url_urlbuilder.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/operations/users/create_url_urlbuilder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/operations/users/create_user_urlbuilder.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/operations/users/create_user_urlbuilder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/operations/users/delete_user_urlbuilder.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/operations/users/delete_user_urlbuilder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restapi/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/restapi/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/spec/swagger.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/spec/swagger.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="8152ff9d-6c81-4dfd-b657-ea5a6039b343" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,8 +125,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/readme.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="2" column="73" selection-start-line="2" selection-start-column="73" selection-end-line="2" selection-end-column="73" />
+                <state relative-caret-position="85">
+                  <caret line="5" column="64" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
                 </state>
               </provider>
             </entry>
@@ -762,8 +730,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="73" selection-start-line="2" selection-start-column="73" selection-end-line="2" selection-end-column="73" />
+        <state relative-caret-position="85">
+          <caret line="5" column="64" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
         </state>
       </provider>
     </entry>
