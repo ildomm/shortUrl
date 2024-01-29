@@ -1,3 +1,5 @@
+![Go Report Card](https://goreportcard.com/badge/github.com/ildomm/shortUrl?cache=v1)
+
 Components:
 RESTApi server generated from Swagger standards, containing Mysql database.
 .
